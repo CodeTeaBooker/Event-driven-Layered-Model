@@ -1,150 +1,125 @@
-# ELM Framework
+# ELM Framework Documentation
+
+&#x20;
+
+## Overview
+
+**ELM (Event-driven Layered Model)** is a lightweight architectural framework for Unity applications. Based on a ScriptableObject event system, it implements a layered architecture pattern that helps developers build maintainable, testable, and scalable Unity applications.
+
+- **Four-Layer Architecture**: Separates UI, event mediation, services, and data access.
+- **Event-driven Communication**: Decouples communication using a ScriptableObject-based event system.
+- **Modular Design**: Shared functionality modules for easy reusability across projects.
+
+## Table of Contents
+
+1. [Installation](#installation)
+2. [Quick Start](#quick-start)
+3. [Architecture Overview](#architecture-overview)
+4. [Core Features](#core-features)
+5. [Framework Advantages](#framework-advantages)
+6. [Getting Started](#getting-started)
+7. [License](#license)
+
+## Installation
+
+To start using the ELM Framework in your Unity project:
+
+1. **Clone or Download**: Clone this repository or download it as a ZIP file.
+2. **Import to Unity**: Open Unity (2020.3 or higher) and import the ELM folder into your project.
+
+```bash
+# Clone repository
+git clone https://github.com/yourusername/ELM-Framework.git
+```
+
+## Quick Start
+
+Here's a quick "Hello World" example to get you started with the ELM framework:
+
+1. Create a **ScriptableObject Event Channel** to trigger actions between layers.
+2. Implement a **Service** that performs core logic.
+3. Bind a **UI Component** to invoke the event.
+
+Example code snippet for an Event Channel:
+
+```csharp
+[CreateAssetMenu(menuName = "Events/IntEventChannel")]
+public class IntEventChannel : ScriptableObject
+{
+    public UnityAction<int> OnEventRaised;
+
+    public void RaiseEvent(int value)
+    {
+        OnEventRaised?.Invoke(value);
+    }
+}
+```
+
+## Architecture Overview
+
+ELM follows a four-layer architecture:
+
+1. **User Interface Layer**: Handles user interaction and visuals.
+2. **Event Mediation Layer**: Manages communication between layers via event channels.
+3. **Service Layer**: Contains the core business logic.
+4. **Data Access Layer**: Manages data persistence and retrieval.
+
+Each application is structured using these four layers, providing clear separation of responsibilities.
+
+### Shared Modules
+
+- **Integration Modules**: For third-party services.
+- **Common Libraries**: Utility libraries shared across applications.
+- **Shared Functionality Modules**: Common, reusable modules.
+
 <div align="center">
   <img src="Event-driven_Layered_Model.svg" alt="ELM Framework Architecture">
 </div>
-## Overview
-
-ELM (Event-driven Layered Model) is a lightweight architectural framework designed specifically for Unity applications. Based on a ScriptableObject event system, it implements a layered architecture pattern that helps developers build maintainable, testable, and scalable Unity applications.
 
 ## Core Features
 
-ELM provides Unity developers with a suite of efficient tools and methodologies to simplify the development process and enhance application maintainability and scalability.
-
-### Event-Driven Architecture
-
-- Event system based on ScriptableObject
-- Decoupled communication between layers
-- Type-safe event channels
-- Visual event connections within the Unity Editor
-
-### Four-Layer Architecture Design
-
-- **User Interface Layer**: Handles user interactions and display
-- **Event Mediation Layer**: Manages cross-layer communication
-- **Service Layer**: Contains core business logic
-- **Data Access Layer**: Handles data persistence and access
-
-### Modular Design
-
-- Shared functional modules across applications
-- Integration modules for third-party services
-- Common tools and extension methods
-- Reusable components based on Prefabs
-
-### Developer-Friendly
-
-- Clear separation of concerns
-- Visual event connection mechanisms
-- Comprehensive testing support
-- Deep integration with Unity
-
-## Technical Highlights
-
-- Utilize Unity's ScriptableObject for visual event configuration
-- Intuitively connect UI and services within the Unity Editor
-- Support dependency injection to enhance testability
-- Service layer supports async/await asynchronous operations
-- Comprehensive unit testing capabilities
-- Adheres to clean architecture principles
+- **Event System**: Type-safe event channels for decoupled communication.
+- **Four-Layer Design**: UI, Event Mediation, Service, and Data Access layers.
+- **Modular Design**: Reusable components, integration modules, and shared functionality.
+- **Dependency Injection**: Enhances testability, and supports async/await operations.
 
 ## Framework Advantages
 
-### Enhances Maintainability and Testability
+1. **Maintainability and Testability**: Strict layer separation reduces coupling, and dependency injection and separation of business logic make unit testing straightforward.
+2. **Extensibility**: Modular architecture with highly reusable components makes it easy to extend functionalities.
+3. **Developer-Friendly**: Visual event connections, deep Unity integration, and support for Test-Driven Development (TDD) improve development experience.
 
-- Clear architectural boundaries
-- Explicit separation of responsibilities
-- Reduced coupling between components
-- Standardized event communication
-- Independent business logic
-- Supports Test-Driven Development (TDD)
-- Easy to write unit tests
-- Testable service layer
+## Getting Started
 
-### Excellent Extensibility
+### Suitable Scenarios
 
-- Modular architecture
-- Highly reusable components
-- Easy to extend functionalities
-- Flexible event system
+- Medium to large Unity projects. Smaller projects may not benefit as much from the ELM framework, as its complexity may be unnecessary.
+- Teams seeking a clear architectural structure.
+- Applications with complex business logic and high maintainability requirements.
 
-### Supports Team Collaboration
+### Folder Structure
 
-- Clear division of responsibilities
-- Standardized communication patterns
-- Unified project structure
-- Visual component connections for better understanding
+- **Scripts/**: Contains all core logic scripts, separated by layers.
+- **Events/**: ScriptableObject event channels.
+- **UI/**: UI components and prefab references.
 
-## Suitable Scenarios
+### Example Project
 
-- Medium to large Unity projects
-- Teams needing clear architectural guidance
-- Applications with complex business logic
-- Projects emphasizing code quality and maintainability
-- Applications requiring high testability
+- A sample project is included to demonstrate best practices and provide common use case implementations.
 
-## Environment Requirements
+## License
 
-- Unity 2020.3 or higher
-- Basic knowledge of C# and Unity development
-- Understanding of event-driven architecture concepts
-
-## Getting Started Quickly
-
-The ELM framework can be easily integrated into new and existing Unity projects, providing:
-
-1. **Clear Project Structure**
-   - Preset folder structures
-   - Standardized naming conventions
-   - Modular organization
-
-2. **Comprehensive Examples**
-   - Basic functionality demonstrations
-   - Best practice showcases
-   - Implementations of common use cases
-
-3. **Detailed Documentation**
-   - Architectural explanations
-   - API references
-   - User guides
-   - Test examples
-
-## Core Functionality
-
-### Event System
-
-- Type-safe event channels
-- Visual event connections
-- Runtime event monitoring
-
-### Service Layer
-
-- Encapsulation of business logic
-- Support for dependency injection
-- Support for asynchronous operations
-
-### Data Layer
-
-- Abstraction of data access
-- Data persistence support
-- Caching mechanisms
-
-### UI Layer
-
-- Separation of UI logic from business logic
-- Event-driven UI updates
-- Reusable UI components
-
-## Open Source License
-
-The ELM framework is licensed under the MIT License and is freely available for personal and commercial projects.
+The ELM framework is open source and licensed under the MIT License. Feel free to use it in your personal or commercial projects.
 
 ## Community Support
 
-- Issue tracking via GitHub Issues
-- Regularly updated example projects
-- Continuously maintained technical documentation
-- Clear version update plans
+- **Issues**: Report bugs or suggest features via GitHub Issues.
+- **Contributing**: Contributions are welcome! Please refer to `CONTRIBUTING.md` for details.
+- **Documentation**: Full API reference and user guides are available in the `docs/` folder.
 
 ---
 
-The ELM framework seamlessly combines event-driven architecture with Unity development, providing a solid foundation for building scalable applications. With its visual event system and clear layered architecture, it significantly enhances development efficiency and code quality. Emphasizing maintainability, testability, and adherence to clean architecture principles, the framework is an ideal choice for teams building professional-grade Unity applications.
+Ready to get started? Clone the repository and explore the example project to see ELM in action!
+
+For any questions or suggestions, please open an issue on GitHub.
+
