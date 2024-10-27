@@ -1,5 +1,5 @@
 # ELM Framework
-![ELM Framework Architecture](Event-driven Layered Model.svg)
+![ELM Framework Architecture](Event-driven_Layered_Model.svg)
 ## Overview
 
 ELM (Event-driven Layered Model) is a lightweight architectural framework designed specifically for Unity applications. Based on a ScriptableObject event system, it implements a layered architecture pattern that helps developers build maintainable, testable, and scalable Unity applications.
