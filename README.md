@@ -43,15 +43,11 @@ Here's a quick "Hello World" example to get you started with the ELM framework:
 Example code snippet for an Event Channel:
 
 ```csharp
-[CreateAssetMenu(menuName = "Events/IntEventChannel")]
-public class IntEventChannel : ScriptableObject
+using UnityEngine;
+namespace ELM_Example.EventSystem
 {
-    public UnityAction<int> OnEventRaised;
-
-    public void RaiseEvent(int value)
-    {
-        OnEventRaised?.Invoke(value);
-    }
+    [CreateAssetMenu(fileName = "NewIntEventChannel", menuName = "ELM_Example/EventSystem/IntEventChannel")]
+    public class IntEventChannel : EventPublisher<int> { }
 }
 ```
 
