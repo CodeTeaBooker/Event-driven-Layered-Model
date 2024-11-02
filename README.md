@@ -4,11 +4,10 @@
 
 ## Overview
 
-**ELM (Event-driven Layered Model)** is a lightweight architectural framework for Unity applications. Based on a ScriptableObject event system, it implements a layered architecture pattern that helps developers build maintainable, testable, and scalable Unity applications.
-
-- **Four-Layer Architecture**: Separates UI, event mediation, services, and data access.
-- **Event-driven Communication**: Decouples communication using a ScriptableObject-based event system.
-- **Modular Design**: Shared functionality modules for easy reusability across projects.
+**ELM (Event-driven Layered Model)** is a lightweight architectural framework designed to enhance the development of Unity applications. By leveraging a ScriptableObject-based event system, ELM introduces a structured, modular approach that improves maintainability, testability, and scalability across Unity projects.
+- **Layered Architecture**: Divides application logic into four distinct layers: UI, event mediation, services, and data access, ensuring a clear separation of responsibilities.
+- **Event-Driven Communication**: Uses a ScriptableObject-based event system to enable decoupled communication between layers, simplifying inter-component interactions.
+- **Modular Design**: Provides reusable functionality modules, facilitating easy sharing and extension of components across projects.
 
 ## Table of Contents
 
@@ -22,15 +21,21 @@
 
 ## Installation
 
-To start using the ELM Framework in your Unity project:
+To start using the ELM Framework, follow these steps to set up the ELM_Example project, which includes a comprehensive set of examples within the main repository.
 
-1. **Clone or Download**: Clone this repository or download it as a ZIP file.
-2. **Import to Unity**: Open Unity (2020.3 or higher) and import the ELM folder into your project.
+1. **Clone the Repository**: Clone the Event-driven-Layered-Model repository, which contains the ELM_Example folder as a fully configured Unity project with sample code and assets.
+2. **Open the Project in Unity**: Launch Unity (version 2022.3 or higher is required) and open the ELM_Example folder as a project. This project includes examples that demonstrate the core functionalities of the ELM Framework.
 
 ```bash
 # Clone repository
-git clone https://github.com/yourusername/ELM-Framework.git
+git clone https://github.com/CodeTeaBooker/Event-driven-Layered-Model.git
 ```
+3. **Explore the Examples**: Inside ELM_Example, you will find organized scripts and assets illustrating best practices and typical use cases for each component within the framework.
+### Version Compatibility
+
+The **ELM_Example** project is compatible with Unity version 2022.3 and above.
+
+
 
 ## Quick Start
 
