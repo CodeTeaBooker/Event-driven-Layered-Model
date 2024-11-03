@@ -1,77 +1,183 @@
 # Contributing to ELM Framework
 
-We welcome contributions to the ELM Framework, whether they are bug reports, feature suggestions, or code contributions. Please follow the guidelines below to ensure smooth collaboration and maintain high-quality standards.
+We welcome contributions to the ELM Framework! Whether you're fixing bugs, improving documentation, or proposing new features, your contributions are highly appreciated. This guide will help you understand our development process.
 
-## How to Contribute
+## Table of Contents
 
-### 1. Reporting Bugs
+1. [Ways to Contribute](#ways-to-contribute)
+2. [Development Process](#development-process)
+3. [Contribution Guidelines](#contribution-guidelines)
+4. [Community Standards](#community-standards)
+5. [Getting Help](#getting-help)
 
-If you encounter a bug, please create an issue on the GitHub repository. Make sure to include:
+## Ways to Contribute
 
-- **Steps to Reproduce**: Clearly explain how to reproduce the bug.
-- **Expected Behavior**: Describe what you expected to happen.
-- **Actual Behavior**: Describe what actually happened.
-- **Environment Details**: Include Unity version, operating system, and other relevant details.
+### Reporting Bugs 🐛
 
-### 2. Suggesting Features
+When reporting bugs, please create an issue on GitHub with the following information:
 
-We are open to new ideas and feature suggestions. To suggest a feature:
+**Required Information:**
+- Detailed steps to reproduce the bug
+- Expected behavior
+- Actual behavior
+- Environment details:
+  - Unity version
+  - Operating system
+  - ELM Framework version
+  - Any relevant project settings
 
-- Create an issue labeled as a **feature request**.
-- Provide a detailed description of the feature and its potential benefits.
-- If possible, suggest an implementation approach.
+**Example Bug Report:**
+```markdown
+**Bug:** Event channel not triggering in specific scenario
 
-### 3. Code Contributions
+**Steps to Reproduce:**
+1. Create a new StringEventChannel
+2. Set up HelloWorldServiceWrapper
+3. Configure UI listener
+4. Run the scene
+5. [Specific action that causes the bug]
 
-#### Fork and Clone the Repository
-
-To contribute code, first **fork** the repository and then **clone** it to your local machine:
-
-```bash
-git clone https://github.com/yourusername/ELM-Framework.git
+**Expected:** Event should trigger and update UI
+**Actual:** UI remains unchanged
+**Environment:** Unity 2022.3.1f1, Windows 10, ELM Framework v1.2.0
 ```
 
-#### Branch Naming
+### Suggesting Features 💡
 
-- Create a new branch for your contribution.
-- Use descriptive names for branches, such as `fix/issue-123` or `feature/add-event-mediation`.
+Feature suggestions are welcome! When proposing new features:
 
-#### Coding Standards
+1. Create an issue with the label `feature request`
+2. Include:
+   - Clear description of the feature
+   - Use cases and benefits
+   - Potential implementation approach
+   - Impact on existing functionality
 
-- Follow the existing **code style** used in the project.
-- Ensure all **public methods and classes** are documented.
-- Write **unit tests** for any new functionality.
+### Code Contributions 👨‍💻
 
-#### Testing
+## Development Process
 
-- Run existing tests to verify that your changes do not break anything.
-- Add new tests for the functionality you contribute.
+### 1. Setting Up Development Environment
 
-#### Pull Requests
+1. **Fork the Repository**
+   - Visit https://github.com/CodeTeaBooker/Event-driven-Layered-Model
+   - Click the "Fork" button to create your own fork
 
-Once your changes are ready:
+2. **Clone Your Fork**
+   ```bash
+   # Clone your forked repository
+   git clone https://github.com/yourusername/Event-driven-Layered-Model.git
+   cd Event-driven-Layered-Model
 
-1. Push your branch to your fork.
-2. Open a **pull request** against the `main` branch of the repository.
-3. Provide a clear and descriptive title for your pull request.
-4. In the description, include:
-   - The purpose of the changes.
-   - A summary of the modifications.
-   - References to any related issues.
+   # Add the original repository as a remote
+   git remote add upstream https://github.com/CodeTeaBooker/Event-driven-Layered-Model.git
 
-### 4. Code Review
+   # Create a new branch
+   git checkout -b feature/your-feature-name
+   ```
 
-All pull requests will be reviewed by maintainers. Please be open to feedback and be prepared to make changes as requested.
+### 2. Branch Naming Conventions
 
-### 5. Community Guidelines
+Use descriptive branch names following these patterns:
+- `feature/description` - For new features
+- `fix/issue-number` - For bug fixes
+- `docs/description` - For documentation changes
+- `refactor/description` - For code refactoring
 
-- Be respectful in all interactions.
-- Avoid duplicate efforts; check existing issues and pull requests before starting work.
-- Help us maintain a welcoming and inclusive community.
+Examples:
+```bash
+git checkout -b feature/add-event-validation
+git checkout -b fix/issue-123
+git checkout -b docs/improve-architecture-section
+```
+
+### 3. Coding Standards
+
+#### Style Guidelines
+- Follow C# coding conventions
+- Use meaningful variable and method names
+- Keep methods focused and concise
+- Maintain consistent formatting
+
+#### Documentation Requirements
+```csharp
+/// <summary>
+/// Handles the processing of string-based events in the ELM Framework.
+/// </summary>
+/// <param name="eventData">The string data to be processed</param>
+/// <returns>True if the event was successfully processed</returns>
+public bool ProcessStringEvent(string eventData)
+{
+    // Implementation
+}
+```
+
+#### Testing Requirements
+- Write unit tests for new features
+- Ensure existing tests pass
+- Follow the existing test patterns
+
+## Contribution Guidelines
+
+### Pull Request Process
+
+1. **Before Submitting:**
+   - Ensure all tests pass
+   - Update documentation if needed
+   - Follow coding standards
+   - Review your changes
+
+2. **Submitting:**
+   ```bash
+   git add .
+   git commit -m "feat: add event validation system"
+   git push origin feature/your-feature-name
+   ```
+
+3. **Pull Request Template:**
+   ```markdown
+   ## Description
+   Brief description of changes
+
+   ## Related Issues
+   Fixes #123
+
+   ## Type of Change
+   - [ ] Bug fix
+   - [ ] New feature
+   - [ ] Documentation update
+   - [ ] Code refactoring
+
+   ## Testing
+   - [ ] Added new tests
+   - [ ] Existing tests pass
+   ```
+
+### Code Review Process
+
+1. Maintainers will review your PR
+2. Address any requested changes
+3. Once approved, changes will be merged
+
+## Community Standards
+
+### Best Practices
+- Check existing issues before creating new ones
+- Be respectful and constructive in discussions
+- Help others in the community
+- Keep discussions focused and productive
+
+### Communication Guidelines
+- Use clear and concise language
+- Provide context for questions or issues
+- Be patient with responses
+- Share knowledge and experiences
 
 ## Getting Help
 
-If you need help, feel free to open an issue or start a discussion in the GitHub Discussions section.
+- **Questions:** Open a Discussion on GitHub
+- **Issues:** Use the issue tracker
 
-Thank you for your interest in contributing to ELM Framework. Together, we can make it even better!
+---
 
+Thank you for contributing to ELM Framework! Your efforts help make this project better for everyone.
