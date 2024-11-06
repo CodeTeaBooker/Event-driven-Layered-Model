@@ -19,8 +19,9 @@ To understand how ELM Framework achieves these goals, let's first look at its ar
 3. [Installation](#installation)
 4. [Quick Start](#quick-start)
 5. [Getting Started](#getting-started)
-6. [License](#license)
-7. [Community Support](#community-support)
+7. [Project Structure Guidelines](#project-structure-guidelines)
+7. [License](#license)
+8. [Community Support](#community-support)
 
 ---
 
@@ -217,6 +218,192 @@ Attach the `HelloWorldServiceWrapper` script to another GameObject (e.g., "Print
 2. **Open in Unity**: Launch Unity (version 2022.3 or higher) and open `ELM_Example` as a project.
 
 ---
+
+## Project Structure Guidelines
+
+The ELM Framework follows a standardized project structure to ensure consistency and maintainability across different Unity projects. This structure aligns with the framework's layered architecture and promotes clear separation of concerns.
+
+### Directory Structure Overview
+
+```
+Assets/
+├── _Common/                          # Common/Reusable content
+├── _Project/                         # Project-specific content
+├── _Packages/                        # Third-party packages
+├── Resources/                        # Dynamic loading resources
+├── StreamingAssets/                  # Streaming media resources
+└── ThirdParty/                       # Third-party plugins
+```
+### Common Content Structure (_Common/)
+This directory contains reusable components and framework core functionality:
+
+```
+_Common/
+├── Runtime/                          # Runtime content
+│   ├── Scripts/                      # Common scripts
+│   │   ├── Data/                     # Common data definitions
+│   │   │   ├── Constants/            # Common constants and enums
+│   │   │   └── Custom/               # Common custom data types
+│   │   ├── Services/                 # Common service implementations
+│   │   ├── ServiceWrappers/          # Common service wrapper implementations
+│   │   ├── BaseEventMediators/       # Base event mediator classes
+│   │   ├── UI/                       # Common UI scripts
+│   │   │   └── Components/           # UI components
+│   │   │       ├── Base/             # Base UI components
+│   │   │       ├── Common/           # Common UI components
+│   │   │       └── Panels/           # UI panels and windows
+│   │   ├── DataAccess/               # Common data access implementations
+│   │   └── Utils/                    # Utility classes and helpers
+│   ├── Art/                          # Common art assets
+│   │   ├── Textures/                 # Shared textures
+│   │   ├── Materials/                # Shared materials
+│   │   ├── Animations/               # Shared animations
+│   │   └── Shaders/                  # Shared shaders
+│   ├── Audio/                        # Common audio
+│   │   ├── Music/                    # Background music
+│   │   └── SFX/                      # Sound effects
+│   ├── Prefabs/                      # Common prefabs
+│   │   ├── UI/                       # UI prefabs
+│   │   ├── Gameplay/                 # Gameplay prefabs
+│   │   └── Systems/                  # System prefabs
+├── Editor/                           # Editor-only content
+│   ├── Scripts/                      # Editor scripts
+│   │   ├── Tools/                    # Custom editor tools
+│   │   ├── Inspectors/               # Custom inspectors
+│   │   └── Windows/                  # Custom editor windows
+│   └── Resources/                    # Editor resources
+└── Tests/                            # Test content
+    ├── Runtime/                      # Tests for Runtime scripts
+    └── Editor/                       # Tests for Editor scripts
+```
+
+### Project Content Structure (_Project/)
+This directory contains project-specific implementations:
+
+```
+_Project/
+├── Runtime/                          # Runtime content
+│   ├── Scripts/                      # Project scripts
+│   │   ├── Data/                     # Project-specific data
+│   │   │   ├── Constants/            # Project constants and enums
+│   │   │   └── Custom/               # Project-specific custom data
+│   │   ├── Services/                 # Project-specific services
+│   │   ├── ServiceWrappers/          # Project-specific service wrappers
+│   │   ├── UI/                       # Project-specific UI implementation
+│   │   │   └── Components/           # UI components
+│   │   │       ├── Base/             # Base UI components
+│   │   │       ├── Common/           # Common UI components
+│   │   │       └── Panels/           # UI panels and windows
+│   │   ├── ExtensionEventMediators/  # Extended event mediators
+│   │   └── DataAccess/               # Project-specific data access
+│   ├── Art/                          # Project art assets
+│   │   ├── Characters/               # Character assets
+│   │   ├── Environments/             # Environment assets
+│   │   ├── UI/                       # UI assets
+│   │   └── VFX/                      # Visual effects
+│   ├── Audio/                        # Project audio
+│   │   ├── Music/                    # Project-specific music
+│   │   └── SFX/                      # Project-specific SFX
+│   ├── Prefabs/                      # Project prefabs
+│   │   ├── Characters/               # Character prefabs
+│   │   ├── Environments/             # Environment prefabs
+│   │   ├── UI/                       # UI prefabs
+│   │   └── Systems/                  # System prefabs
+│   └── ScriptableObjects/            # Project configurations
+│       ├── EventChannels/            # Event channel instances
+│       ├── Configurations/           # Configuration instances
+│       └── DataContainers/           # Data container instances
+├── Editor/                           # Project editor tools
+│   ├── Scripts/                      # Editor scripts
+│   └── Resources/                    # Editor resources
+├── Tests/                            # Project tests
+│   ├── Runtime/                      # Tests for Runtime scripts
+│   └── Editor/                       # Tests for Editor scripts
+└── Scenes/                           # Scene files
+    ├── Main/                         # Main scenes
+    ├── Levels/                       # Level scenes
+    └── Tests/                        # Test scenes
+```
+
+### Structure Guidelines
+
+1. **Layer Separation**
+   - Each architectural layer has its dedicated folder within the Scripts directory
+   - Services and their wrappers are kept separate but related
+   - UI components are organized by functionality and reusability
+
+2. **Resource Organization**
+   - Art assets are categorized by type (Textures, Materials, etc.)
+   - Audio files are split between Music and SFX
+   - Prefabs are organized by purpose (UI, Gameplay, Systems)
+
+3. **Testing Structure**
+   - Tests mirror the source code structure
+   - Each folder in Tests corresponds to the scripts being tested
+   - Runtime/Tests contains tests for Runtime/Scripts
+   - Editor/Tests contains tests for Editor/Scripts
+
+4. **ScriptableObject Management**
+   - Event channels have a dedicated folder
+   - Configuration data is centralized
+   - Data containers are organized by purpose
+
+5. **Common vs Project Separation**
+   - Reusable components go in _Common
+   - Project-specific implementations go in _Project
+   - Consistent folder structure between both for easy navigation
+
+### Best Practices
+
+1. **Naming Conventions**
+   - Use PascalCase for folders containing scripts
+   - Use lowercase for resource folders
+   - Prefix private folders with underscore (_Common, _Project)
+
+2. **Asset Organization**
+   - Keep related assets close to their usage
+   - Maintain parallel structures in Common and Project
+   - Use clear, descriptive folder names
+
+3. **Scene Management**
+   - Organize scenes by purpose (Main, Levels, Tests)
+   - Keep test scenes separate from production scenes
+   - Use sub-folders for related scenes
+
+4. **Version Control Considerations**
+   - Consider using Unity packages for shared content
+   - Keep large binary files in appropriate streaming assets
+   - Organize meta files consistently
+
+### Integration with ELM Framework
+
+This structure directly supports the ELM Framework's architecture by:
+
+1. **Supporting Layered Architecture**
+   - Clear separation of UI, Event Mediation, Service, and Data Access layers
+   - Easy to identify and maintain layer boundaries
+   - Structured support for dependency injection
+
+2. **Enabling Event-Driven Design**
+   - Centralized event channel management
+   - Clear organization of event mediators
+   - Separated event-related configurations
+
+3. **Facilitating Testing**
+   - Tests are structured to match source code organization
+   - Each component type has its dedicated test location
+   - Support for testing both Runtime and Editor scripts
+
+4. **Promoting Modularity**
+   - Clear separation of common and project-specific code
+   - Organized module structure
+   - Easy to identify and manage dependencies
+
+This structure is designed to scale with your project while maintaining the principles and benefits of the ELM Framework.
+
+
+---
+
 
 ## License
 
