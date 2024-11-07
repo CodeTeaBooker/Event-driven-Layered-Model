@@ -248,23 +248,18 @@ _Common/
 │   │   ├── ServiceWrappers/          # Common service wrapper implementations
 │   │   ├── BaseEventMediators/       # Base event mediator classes
 │   │   ├── UI/                       # Common UI scripts
-│   │   │   └── Components/           # UI components
-│   │   │       ├── Base/             # Base UI components
-│   │   │       ├── Common/           # Common UI components
-│   │   │       └── Panels/           # UI panels and windows
 │   │   ├── DataAccess/               # Common data access implementations
 │   │   └── Utils/                    # Utility classes and helpers
 │   ├── Art/                          # Common art assets
-│   │   ├── Textures/                 # Shared textures
-│   │   ├── Materials/                # Shared materials
-│   │   ├── Animations/               # Shared animations
-│   │   └── Shaders/                  # Shared shaders
+│   │   ├── 3DModels/                 # 3D model assets and related resources
+│   │   ├── UI/                       # UI art assets
+│   │   └── VFX/                      # Visual effects
 │   ├── Audio/                        # Common audio
-│   │   ├── Music/                    # Background music
+│   │   ├── Music/                    # Music
 │   │   └── SFX/                      # Sound effects
 │   ├── Prefabs/                      # Common prefabs
+│   │   ├── 3DModels/                 # 3D model prefabs
 │   │   ├── UI/                       # UI prefabs
-│   │   ├── Gameplay/                 # Gameplay prefabs
 │   │   └── Systems/                  # System prefabs
 ├── Editor/                           # Editor-only content
 │   ├── Scripts/                      # Editor scripts
@@ -289,24 +284,18 @@ _Project/
 │   │   │   └── Custom/               # Project-specific custom data
 │   │   ├── Services/                 # Project-specific services
 │   │   ├── ServiceWrappers/          # Project-specific service wrappers
-│   │   ├── UI/                       # Project-specific UI implementation
-│   │   │   └── Components/           # UI components
-│   │   │       ├── Base/             # Base UI components
-│   │   │       ├── Common/           # Common UI components
-│   │   │       └── Panels/           # UI panels and windows
+│   │   ├── UI/                       # Project-specific UI implementations
 │   │   ├── ExtensionEventMediators/  # Extended event mediators
 │   │   └── DataAccess/               # Project-specific data access
 │   ├── Art/                          # Project art assets
-│   │   ├── Characters/               # Character assets
-│   │   ├── Environments/             # Environment assets
-│   │   ├── UI/                       # UI assets
+│   │   ├── 3DModels/                 # 3D model assets and related resources
+│   │   ├── UI/                       # UI art assets
 │   │   └── VFX/                      # Visual effects
 │   ├── Audio/                        # Project audio
 │   │   ├── Music/                    # Project-specific music
 │   │   └── SFX/                      # Project-specific SFX
 │   ├── Prefabs/                      # Project prefabs
-│   │   ├── Characters/               # Character prefabs
-│   │   ├── Environments/             # Environment prefabs
+│   │   ├── 3DModels/                 # 3D model prefabs
 │   │   ├── UI/                       # UI prefabs
 │   │   └── Systems/                  # System prefabs
 │   └── ScriptableObjects/            # Project configurations
@@ -320,9 +309,7 @@ _Project/
 │   ├── Runtime/                      # Tests for Runtime scripts
 │   └── Editor/                       # Tests for Editor scripts
 └── Scenes/                           # Scene files
-    ├── Main/                         # Main scenes
-    ├── Levels/                       # Level scenes
-    └── Tests/                        # Test scenes
+
 ```
 
 ### Structure Guidelines
@@ -330,12 +317,18 @@ _Project/
 1. **Layer Separation**
    - Each architectural layer has its dedicated folder within the Scripts directory
    - Services and their wrappers are kept separate but related
-   - UI components are organized by functionality and reusability
+   - UI scripts and assets are organized in dedicated UI folders
 
 2. **Resource Organization**
-   - Art assets are categorized by type (Textures, Materials, etc.)
+   - Art resources are consistently organized across _Common and _Project:
+     * 3DModels folder for 3D content and related resources
+     * UI folder for interface assets
+     * VFX folder for effects
    - Audio files are split between Music and SFX
-   - Prefabs are organized by purpose (UI, Gameplay, Systems)
+   - Prefab organization mirrors Art structure with dedicated folders:
+     * 3DModels for model prefabs
+     * UI for interface prefabs
+     * Systems for system prefabs
 
 3. **Testing Structure**
    - Tests mirror the source code structure
@@ -361,16 +354,11 @@ _Project/
    - Prefix private folders with underscore (_Common, _Project)
 
 2. **Asset Organization**
-   - Keep related assets close to their usage
-   - Maintain parallel structures in Common and Project
-   - Use clear, descriptive folder names
+   - Group assets by functional modules (3DModels, UI, VFX)
+   - Keep all related resources together within their module
+   - Maintain consistent structure between Art and Prefabs directories
 
-3. **Scene Management**
-   - Organize scenes by purpose (Main, Levels, Tests)
-   - Keep test scenes separate from production scenes
-   - Use sub-folders for related scenes
-
-4. **Version Control Considerations**
+3. **Version Control Considerations**
    - Consider using Unity packages for shared content
    - Keep large binary files in appropriate streaming assets
    - Organize meta files consistently
